@@ -2,19 +2,14 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import HomeLayouts from '../layouts/HomeLayouts';
 import ProjectDetails from '../componets/ProjectsDetails';
+import NotFound from '../componets/NotFound';
 
 const Router = createBrowserRouter([
     {
         path: '/',
-        element: <HomeLayouts></HomeLayouts>,
-    },
-    {
-        path: 'about',
-        element: <h1>About</h1>
-    },
-    {
-        path: 'career',
-        element: <h1>Career</h1>
+        errorElement: <NotFound />,
+        element: < HomeLayouts></HomeLayouts >,
+
     },
     {
         path: 'project-details/:id',

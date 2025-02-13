@@ -35,15 +35,16 @@ const ProjectDetails = () => {
         }
 
     ];
-    const project = projects[id];  // Get the project data using the ID (index in this case)
+    const project = projects[id];
 
     return (
-        <div className="bg-minBg text-white">
-            <div className="container mx-auto py-10 px-6 lg:px-12">
-                <div className="project-details bg-secondBg rounded-lg shadow-lg p-6">
-                    <h2 className="text-4xl font-extrabold text-center text-gray-100 mb-6">{project?.name}</h2>
+        <div className="bg-minBg text-white min-h-screen ">
+            <div data-aos="zoom-in"
+                data-aos-duration="1500" className="container mx-auto  py-10 px-6 lg:px-12">
+                <div className="project-details bg-secondBg rounded-lg shadow-[0_0_10px_#13bbff]  border-primary-color p-6">
+                    <h2 data-aos="fade-down" data-aos-duration="1500" className="text-4xl font-extrabold text-center text-gray-100 mb-6 text-primary-color">{project?.name}</h2>
                     <img src={project?.image} alt={project?.name} className="w-full h-72 object-cover rounded-lg shadow-md mb-6" />
-                    <p className="text-xl mb-4"><strong>Technologies Used:</strong> {project?.techStack.join(', ')}</p>
+                    <p className="text-xl mb-4"><strong>Technologies Used:</strong> <span className='text-primary-color'>{project?.techStack.join(', ')}</span></p>
                     <p className="text-xl mb-6"><strong>Description:</strong> {project?.description}</p>
 
                     <p className="text-xl mb-6"><strong>Live Project: </strong>

@@ -36,31 +36,43 @@ const projects = [
 
 export default function ProjectsSection() {
     return (
-        <div className="container mx-auto py-24 px-4">
-            <h2 className="text-3xl font-bold text-center mb-8 text-gray-100">Projects</h2>
-            <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
+        <div className="container mx-auto py-24 ">
+            <h2 data-aos="fade-down" data-aos-duration="1500" className="text-3xl font-bold text-center mb-8 ">Project'<span className="text-primary-color">S</span> </h2>
+            <div data-aos="zoom-in" data-aos-duration="1500" className="grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 gap-6 px-6 lg:px-0">
                 {projects.map((project, index) => (
                     <div key={index}
-                        className="bg-[#2d343f] p-6 rounded-xl shadow-lg border-2 border-[#3498db] transition-transform duration-300 hover:scale-105">
+                        className="bg-[#2d343f] p-6 rounded-xl shadow-lg border-2 border-[#13bbff] transition-transform duration-300 hover:scale-105">
 
                         {/* Image with Hover Effect */}
                         <img
                             src={project.image}
                             alt={project.name}
-                            className="w-full h-48 object-cover rounded-lg shadow-md mb-4 transition-transform duration-300 hover:scale-110"
+                            className="w-full h-48 object-cover rounded-lg shadow-md mb-4 transition-transform duration-300 hover:scale-105"
                         />
 
-                        <h3 className="text-xl font-semibold text-gray-200 mb-2">{project.name}</h3>
-                        <p className="text-sm text-gray-400 mb-4">{project.description}</p>
+                        <h3 className="text-xl font-semibold mb-2 text-primary-color">{project.name}</h3>
+                        <p className="text-sm text-dressTxt mb-4 font-semibold">{project.description}</p>
 
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-center items-center">
                             <Link to={`/project-details/${index}`} style={{ textDecoration: 'none' }}>
                                 <Button
                                     variant="outlined"
                                     sx={{
-                                        color: 'white',
-                                        borderColor: '#3498db',
-                                        '&:hover': { backgroundColor: '#3498db', color: '#fff' }
+                                        // backgroundColor: '#22282f',
+                                        color: '#13bbff',
+                                        border: '1px solid #13bbff',
+                                        fontSize: '15px',
+                                        fontWeight: '600',
+                                        marginTop: '20px',
+                                        marginLeft: '10px',
+                                        transition: 'all 0.50s ease',
+                                        '&:hover': {
+                                            backgroundColor: '#13bbff',
+                                            borderColor: '#13bbff',
+                                            color: '#1b1f24',
+                                            boxShadow: '0 0 20px #13bbff',
+
+                                        }
                                     }}
                                 >
                                     View More / Details

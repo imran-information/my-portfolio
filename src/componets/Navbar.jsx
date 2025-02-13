@@ -3,14 +3,57 @@ import React from 'react';
 import CV from '../asstes/pexels-photo.jpg';
 import { CloudDownload } from '@mui/icons-material';
 import { HashLink } from 'react-router-hash-link';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+    const location = useLocation();
+
     const links = <>
-        <li><HashLink smooth to="/#home">Home</HashLink></li>
-        <li><HashLink smooth to="/#about">About</HashLink></li>
-        <li><HashLink smooth to="/#skills">Skills</HashLink></li>
-        <li><HashLink smooth to="/#project">Project</HashLink></li>
-        <li><HashLink smooth to="/#contact">Contact</HashLink></li>
+        <li>
+            <HashLink
+                smooth
+                to="/#home"
+                className={`transition-colors duration-300 font-bold ${location.hash === '#home' ? 'text-primary-color' : 'hover:text-primary-color'}`}
+            >
+                Home
+            </HashLink>
+        </li>
+        <li>
+            <HashLink
+                smooth
+                to="/#about"
+                className={`transition-colors duration-300 font-bold ${location.hash === '#about' ? 'text-primary-color' : 'hover:text-primary-color'}`}
+            >
+                About
+            </HashLink>
+        </li>
+        <li>
+            <HashLink
+                smooth
+                to="/#skills"
+                className={`transition-colors duration-300 font-bold ${location.hash === '#skills' ? 'text-primary-color' : 'hover:text-primary-color'}`}
+            >
+                Skills
+            </HashLink>
+        </li>
+        <li>
+            <HashLink
+                smooth
+                to="/#project"
+                className={`transition-colors duration-300 font-bold ${location.hash === '#project' ? 'text-primary-color' : 'hover:text-primary-color'}`}
+            >
+                Projects
+            </HashLink>
+        </li>
+        <li>
+            <HashLink
+                smooth
+                to="/#contact"
+                className={`transition-colors duration-300 font-bold ${location.hash === '#contact' ? 'text-primary-color' : 'hover:text-primary-color'}`}
+            >
+                Contact
+            </HashLink>
+        </li>
     </>
 
     const handleDownload = () => {
@@ -23,11 +66,11 @@ const Navbar = () => {
     };
 
     return (
-        <div className='sticky top-0 z-50 bg-minBg text-white'>
-            <div className="navbar container mx-auto">
-                <div className="navbar-start">
+        <div className='fixed z-50 w-full bg-minBg text-white'>
+            <div className="navbar px-0 container mx-auto py-3">
+                <div data-aos="fade-right" data-aos-duration="1500" className="navbar-start">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <div data-aos="fade-down" data-aos-duration="1500" tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5"
@@ -41,30 +84,44 @@ const Navbar = () => {
                                     d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </div>
-                        <ul
+                        <ul data-aos="fade-down" data-aos-duration="1500"
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-secondBg rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             {links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Developer </a>
+                    <HashLink smooth to="/#home" className="text-2xl md:text-4xl font-bold hover:text-primary-color transition-colors duration-300">Developer <span className='text-primary-color'>I.</span></HashLink>
                 </div>
-                <div className="navbar-center hidden lg:flex">
+                <div data-aos="fade-down" data-aos-duration="1500" className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div data-aos="fade-left" data-aos-duration="1500" className="navbar-end">
                     <Button
                         variant="outlined"
-                        color="primary"
-                        style={{ marginTop: '20px', marginLeft: '10px' }}
+                        sx={{
+                            backgroundColor: '#1b1f24',
+                            color: '#13bbff',
+                            border: '1px solid #13bbff',
+                            fontSize: '15px',
+                            fontWeight: '600',
+                            transition: 'all 0.50s ease',
+                            '&:hover': {
+                                backgroundColor: '#13bbff',
+                                borderColor: '#13bbff',
+                                color: '#1b1f24',
+                                boxShadow: '0 0 20px #13bbff',
+                                transform: 'scale(1.1)',
+                            }
+                        }}
                         onClick={handleDownload}
                         startIcon={<CloudDownload />}
                     >
                         Download CV
                     </Button>
                 </div>
+
             </div>
         </div>
     );

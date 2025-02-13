@@ -6,12 +6,11 @@ export default {
   ],
   theme: {
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
       'minBg': '#1b1f24',
       'white': '#ffffff',
-      'dressTxt': '#ffffff',
+      'dressTxt': '#b0bec5',
       'secondBg': '#22282f',
+      'primary-color': '#13bbff'
     },
     fontFamily: {
       serif: '"Sora", serif'
