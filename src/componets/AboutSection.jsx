@@ -79,8 +79,7 @@ const AboutSection = () => {
                             <li><strong>Specialty:</strong> MERN Stack & UI/UX Developer</li>
                             <li><strong>Location:</strong> Mohadevpur, Naogaon, Bangladesh</li>
                             <li><strong>Email:</strong> imranhossen0856@gmail.com</li>
-                            <li><strong>Phone:</strong> +88 01868-634721</li>
-                            <li><strong>Freelance:</strong> Currently working on Upwork</li>
+                            <li><strong>Phone:</strong> +88 01868-634721</li> 
                         </ul>
                     </Typography>
                 </Box>

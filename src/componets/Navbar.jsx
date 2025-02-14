@@ -101,6 +101,7 @@ const Navbar = () => {
                     <Button
                         variant="outlined"
                         sx={{
+                            marginRight: { xs: '24px', md: '0' },
                             backgroundColor: '#1b1f24',
                             color: '#13bbff',
                             border: '1px solid #13bbff',
