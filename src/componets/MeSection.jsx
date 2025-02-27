@@ -25,7 +25,7 @@ const MeSection = () => {
                 </Typography>
                 <TypewriterEffect />
                 <Typography className='text-dressTxt text-justify md:text-start' variant="body1" style={{ marginTop: '10px', fontWeight: 'bold', lineHeight: '26px' }}>
-                    I’m a MERAN Stack developer passionate about creating interactive user experiences
+                    I’m a MERN Stack developer passionate about creating interactive user experiences
                     and building efficient, high-performance websites and applications. I specialize
                     in JavaScript, React, Node.js, and various modern development technologies. I love learning
                     and adapting to new challenges in the tech world.

@@ -36,7 +36,7 @@ const AboutSection = () => {
                 <Box mt={3}>
                     {/* Introduction */}
                     <Typography variant="body1" sx={{ mt: 2, fontWeight: 'bold', color: '#b0bec5' }}>
-                        I'm <strong>Imran Hossain</strong>, a passionate <strong>MERAN Stack Developer</strong> dedicated to crafting high-performance, visually appealing digital experiences. My journey in web development began with curiosity, evolving into a professional career focused on delivering seamless and intuitive user experiences.
+                        I'm <strong>Imran Hossain</strong>, a passionate <strong>MERN Stack Developer</strong> dedicated to crafting high-performance, visually appealing digital experiences. My journey in web development began with curiosity, evolving into a professional career focused on delivering seamless and intuitive user experiences.
                     </Typography>
 
                     {/* Experience */}

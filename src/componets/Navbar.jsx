@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import React from 'react';
-import CV from '../asstes/pexels-photo.jpg';
+import CV from '../asstes/Resume.pdf';
 import { CloudDownload } from '@mui/icons-material';
 import { HashLink } from 'react-router-hash-link';
 import { useLocation } from 'react-router-dom';
