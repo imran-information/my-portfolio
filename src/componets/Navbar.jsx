@@ -59,7 +59,7 @@ const Navbar = () => {
     const handleDownload = () => {
         const link = document.createElement('a');
         link.href = CV;
-        link.download = 'Imran-CV.jpg';
+        link.download = 'Imran-Resume.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
