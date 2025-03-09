@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Typography, IconButton } from '@mui/material';
-import { LinkedIn, Facebook, Instagram, GitHub, CloudDownload, Twitter } from '@mui/icons-material';
+import { LinkedIn, Facebook, GitHub, CloudDownload, Twitter } from '@mui/icons-material';
 import meImg2 from '../asstes/imran-dp-white.png';
-import CV from '../asstes/pexels-photo.jpg';
+import CV from '../asstes/Resume.pdf';
 import TypewriterEffect from './TypewriterEffect';
 
 const MeSection = () => {

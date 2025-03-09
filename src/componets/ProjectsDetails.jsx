@@ -5,8 +5,8 @@ const ProjectDetails = () => {
     const projects = [
         {
             name: 'Medical Camp Management',
-            image: 'https://i.ibb.co.com/6cM03qvP/Screenshot-2025-02-07-171525.png',
-            techStack: ['React', 'Node.js', 'MongoDB'],
+            image: 'https://i.ibb.co.com/mr6sy506/Screenshot-2025-03-09-223634.png',
+            techStack: ['React', 'Node.js', 'Express.js', 'MongoDB'],
             description: 'The Medical Camp Management System (MCMS) is a MERN stack-based web application designed to simplify the organization and participation in medical camps.',
             liveLink: 'https://medical-camp-management-1b67d.web.app',
             githubLink: 'https://github.com/imran-information/Medical-Camp-Management-System-client',
@@ -14,25 +14,35 @@ const ProjectDetails = () => {
             improvements: 'Add improvements for better user experience and performance optimization.',
         },
         {
+            name: 'Next Generation',
+            image: 'https://i.ibb.co.com/XZ68gXBc/Screenshot-2025-03-09-222427.png',
+            techStack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Material UI', 'Firebase'],
+            description: 'This platform is designed to create an engaging blogging experience where users can read, write, and manage blogs. The platform includes features such as user authentication, blog wishlisting, comments, and dynamic content filtering.',
+            liveLink: 'https://next-gen-230be.web.app/',
+            githubLink: 'https://github.com/imran-information/next-generation-client',
+            challenges: 'Implementing JWT authentication, ensuring secure routes, handling real-time updates for blog interactions, and managing efficient content filtering.',
+            improvements: 'Future improvements for Project 3: Multi-language support, real-time notifications, improved search capabilities, and integration with a mobile app.',
+        },
+        {
+            name: 'Car Doctor',
+            image: 'https://i.ibb.co.com/zTG3BYcT/Screenshot-2025-03-09-173952.png',
+            techStack: ['NextJs', 'MongoDB', 'Material UI'],
+            description: 'Car Doctor is a web application built with Next.js that provides car repair services. Users can view available services, book appointments, and manage their bookings.',
+            liveLink: 'https://car-doctor-next-js.vercel.app',
+            githubLink: 'https://github.com/imran-information/car-doctor-next-JS',
+            challenges: 'Optimized UI design.',
+            improvements: "Refined the review system for better accuracy and enhanced user interaction.",
+        },
+        {
             name: 'Chill Gamer',
             image: 'https://i.ibb.co.com/2Ydtn6P2/Screenshot-2025-02-07-171625.png',
-            techStack: ['React', 'Node.js', 'MongoDB', 'Material UI'],
+            techStack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Material UI'],
             description: 'Chill Gamer is a user-friendly game review application where users can explore and share game reviews. The platform provides an intuitive UI with features like user authentication, review management, and a personalized watchlist.',
             liveLink: 'https://chill-gamer-3528e.web.app/',
             githubLink: 'https://github.com/imran-information/chill-gamer-client',
             challenges: 'Implemented JWT authentication for sensitive routes., Provided robust table management with pagination and search capabilities.',
             improvements: 'Designed with simplicity and functionality in mind, Chill Gamer ensures a smooth experience for all users.',
         },
-        {
-            name: 'Next Generation',
-            image: 'https://i.ibb.co.com/RGtQs27H/Screenshot-2025-02-07-171553.png',
-            techStack: ['React', 'Node.js', 'MongoDB', 'Material UI', 'Firebase'],
-            description: 'This platform is designed to create an engaging blogging experience where users can read, write, and manage blogs. The platform includes features such as user authentication, blog wishlisting, comments, and dynamic content filtering.',
-            liveLink: 'https://next-gen-230be.web.app/',
-            githubLink: 'https://github.com/imran-information/next-generation-client',
-            challenges: 'Implementing JWT authentication, ensuring secure routes, handling real-time updates for blog interactions, and managing efficient content filtering.',
-            improvements: 'Future improvements for Project 3: Multi-language support, real-time notifications, improved search capabilities, and integration with a mobile app.',
-        }
 
     ];
     const project = projects[id];

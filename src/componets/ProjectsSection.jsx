@@ -4,13 +4,33 @@ import { Link } from 'react-router-dom';
 const projects = [
     {
         name: 'Medical Camp Management',
-        image: 'https://i.ibb.co.com/6cM03qvP/Screenshot-2025-02-07-171525.png',
+        image: 'https://i.ibb.co.com/mr6sy506/Screenshot-2025-03-09-223634.png',
         techStack: ['React', 'Node.js', 'MongoDB'],
         description: 'The Medical Camp Management System (MCMS) is a MERN stack-based web application designed to simplify the organization and participation in medical camps.',
         liveLink: 'https://medical-camp-management-1b67d.web.app',
         githubLink: 'https://github.com/imran-information/Medical-Camp-Management-System-client',
         challenges: 'Implemented JWT authentication for sensitive routes, robust table management with pagination and search capabilities.',
         improvements: 'Better user experience and performance optimization.',
+    },
+    {
+        name: 'Next Generation',
+        image: 'https://i.ibb.co.com/XZ68gXBc/Screenshot-2025-03-09-222427.png',
+        techStack: ['React', 'Node.js', 'MongoDB', 'Material UI', 'Firebase'],
+        description: 'A blogging platform where users can read, write, and manage blogs. Features include authentication, wishlists, comments, and dynamic filtering.',
+        liveLink: 'https://next-gen-230be.web.app/',
+        githubLink: 'https://github.com/imran-information/next-generation-client',
+        challenges: 'Implemented JWT authentication, real-time updates, and optimized blog filtering.',
+        improvements: 'Future plans include multi-language support, real-time notifications, and mobile app integration.',
+    },
+    {
+        name: 'Car Doctor',
+        image: 'https://i.ibb.co.com/zTG3BYcT/Screenshot-2025-03-09-173952.png',
+        techStack: ['NextJs', 'MongoDB', 'Material UI'],
+        description: 'Car Doctor is a web application built with Next.js that provides car repair services. Users can view available services, book appointments, and manage their bookings.',
+        liveLink: 'https://car-doctor-next-js.vercel.app',
+        githubLink: 'https://github.com/imran-information/car-doctor-next-JS',
+        challenges: 'Optimized UI design.',
+        improvements: "Refined the review system for better accuracy and enhanced user interaction.",
     },
     {
         name: 'Chill Gamer',
@@ -22,16 +42,7 @@ const projects = [
         challenges: 'Implemented JWT authentication, pagination, and optimized UI design.',
         improvements: 'Enhanced review filtering and improved user engagement.',
     },
-    {
-        name: 'Next Generation',
-        image: 'https://i.ibb.co.com/RGtQs27H/Screenshot-2025-02-07-171553.png',
-        techStack: ['React', 'Node.js', 'MongoDB', 'Material UI', 'Firebase'],
-        description: 'A blogging platform where users can read, write, and manage blogs. Features include authentication, wishlists, comments, and dynamic filtering.',
-        liveLink: 'https://next-gen-230be.web.app/',
-        githubLink: 'https://github.com/imran-information/next-generation-client',
-        challenges: 'Implemented JWT authentication, real-time updates, and optimized blog filtering.',
-        improvements: 'Future plans include multi-language support, real-time notifications, and mobile app integration.',
-    }
+
 ];
 
 export default function ProjectsSection() {
