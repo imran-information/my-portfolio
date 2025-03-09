@@ -24,7 +24,7 @@ const projects = [
     },
     {
         name: 'Car Doctor',
-        image: 'https://i.ibb.co.com/zTG3BYcT/Screenshot-2025-03-09-173952.png',
+        image: 'https://i.ibb.co.com/Css741bm/Screenshot-2025-03-09-223019.png',
         techStack: ['NextJs', 'MongoDB', 'Material UI'],
         description: 'Car Doctor is a web application built with Next.js that provides car repair services. Users can view available services, book appointments, and manage their bookings.',
         liveLink: 'https://car-doctor-next-js.vercel.app',
