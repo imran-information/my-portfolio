@@ -65,7 +65,7 @@ export default function ProjectsSection() {
             <div data-aos="zoom-in" data-aos-duration="1500" className="grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 gap-6 px-6 lg:px-0">
                 {projects?.map((project) => (
                     <div key={project._id}
-                        className="bg-[#2d343f] p-6 rounded-xl shadow-lg border-2 border-[#13bbff] transition-transform duration-300 hover:scale-105">
+                        className="bg-[#2d343f] p-6 rounded-xl shadow-lg border border-[#13bbff] transition-transform duration-300 hover:scale-105">
 
                         {/* Image with Hover Effect */}
                         <img
@@ -75,7 +75,28 @@ export default function ProjectsSection() {
                         />
 
                         <h3 className="text-xl font-semibold mb-2 text-primary-color">{project.name}</h3>
-                        <p className="text-sm text-dressTxt mb-4 font-semibold">{project.description}</p>
+                        <p className="text-sm text-dressTxt mb-2 font-semibold">{project.description}</p>
+                        <div className="flex flex-wrap justify-center gap-3 p-4 rounded-2xl mx-auto">
+                            {
+                                project.techStack.slice(0, 3).map((tec, index) => (
+                                    <p
+                                        key={index}
+                                        className="border border-primary-color text-primary-color py-1 px-4 rounded-full text-sm font-medium hover:bg-primary-color hover:text-white transition-all duration-200"
+                                    >
+                                        {tec}
+                                    </p>
+                                ))
+                            }
+
+                            {
+                                project.techStack.length > 3 && (
+                                    <p className="border border-gray-300 text-gray-500 py-1 px-4 rounded-full text-sm font-medium">
+                                        +{project.techStack.length - 3} more
+                                    </p>
+                                )
+                            }
+                        </div>
+
 
                         <div className="flex justify-center items-center">
                             <Link to={`/project-details/${project._id}`} style={{ textDecoration: 'none' }}>
@@ -87,7 +108,7 @@ export default function ProjectsSection() {
                                         border: '1px solid #13bbff',
                                         fontSize: '15px',
                                         fontWeight: '600',
-                                        marginTop: '20px',
+                                        marginTop: '10px',
                                         marginLeft: '10px',
                                         transition: 'all 0.50s ease',
                                         '&:hover': {

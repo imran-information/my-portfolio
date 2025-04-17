@@ -12,8 +12,8 @@ const ContactInformation = () => {
                     {/* Email */}
                     <div className="contact-item">
                         <p className="text-xl font-semibold mb-2 text-primary-color">📧 Email</p>
-                        <a href="mailto:imranhossain0856@gmail.com" className="text-dressTxt hover:text-primary-color hover:underline">
-                            imranhossain0856@gmail.com
+                        <a href="mailto:imranme.global@gmail.com" className="text-dressTxt hover:text-primary-color hover:underline">
+                            imranme.global@gmail.com
                         </a>
                     </div>
 

@@ -1,4 +1,5 @@
 import { Button } from '@mui/material';
+import axios from 'axios';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -14,10 +15,19 @@ const ContactMe = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log("Form submitted:", formData);
-        toast.success("Thank you for your message!");
+        try {
+            const response = await axios.post('http://localhost:5000/contact', formData);
+
+            toast.success(response.data.message); // Show success toast
+            toast.success("Thank you for your message!");
+
+            setFormData({ name: "", email: "", message: "" });
+        } catch (err) {
+            console.error("Error sending message", err);
+            toast.error("Something went wrong.");
+        }
         // Clear form fields
         setFormData({ name: "", email: "", message: "" });
     };
