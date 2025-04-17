@@ -13,7 +13,8 @@ const Router = createBrowserRouter([
     },
     {
         path: 'project-details/:id',
-        element: <ProjectDetails />
+        element: <ProjectDetails />,
+        loader: ({params}) => fetch(`http://localhost:5000/projects/${params.id}`)
     }
 ])
 

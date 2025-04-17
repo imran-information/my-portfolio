@@ -5,7 +5,7 @@ import { RouterProvider } from 'react-router-dom'
 import Router from './routes/rouer.jsx'
 import { Toaster } from 'react-hot-toast'
 import AOS from 'aos';
-import 'aos/dist/aos.css';   
+import 'aos/dist/aos.css';
 AOS.init();
 
 createRoot(document.getElementById('root')).render(
