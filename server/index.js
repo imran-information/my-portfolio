@@ -6,7 +6,15 @@ require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors(['http://localhost:5173', 'https://imran-portfolio-iota.vercel.app']));
+const allowedOrigins = [
+    'http://localhost:5173',
+    'https://imran-portfolio-iota.vercel.app'
+];
+
+app.use(cors({
+    origin: allowedOrigins,
+}));
+
 app.use(express.json())
 
 // Set up nodemailer transporter
@@ -17,6 +25,16 @@ const transporter = nodemailer.createTransport({
         pass: process.env.GMAIL_PASS,
     },
 });
+
+
+transporter.verify((error, success) => {
+    if (error) {
+        console.error("Transporter error:", error);
+    } else {
+        console.log("Transporter is ready:", success);
+    }
+});
+
 
 // Send email function
 const sendEmail = async (formData) => {
@@ -56,6 +74,11 @@ app.post('/contact', (req, res) => {
 
     res.status(200).json({ message: 'Message sent successfully!' });
 });
+
+
+console.log("GMAIL_USER:", process.env.GMAIL_USER);
+console.log("GMAIL_PASS:", process.env.GMAIL_PASS);
+
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.mf5r9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
