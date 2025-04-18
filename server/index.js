@@ -6,7 +6,7 @@ require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors(['http://localhost:5173']));
+app.use(cors(['http://localhost:5173', 'https://imran-portfolio-iota.vercel.app']));
 app.use(express.json())
 
 // Set up nodemailer transporter
@@ -70,7 +70,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
     try {
-        await client.connect();
+        // await client.connect();
         const database = client.db('my-portfolio')
         const projectsCollection = database.collection('projects')
 

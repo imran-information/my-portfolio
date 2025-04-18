@@ -18,7 +18,7 @@ const ContactMe = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/contact', formData);
+            const response = await axios.post('https://imran-portfolio-server.vercel.app/contact', formData);
 
             toast.success(response.data.message); // Show success toast
             toast.success("Thank you for your message!");

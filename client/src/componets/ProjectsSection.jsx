@@ -53,7 +53,7 @@ export default function ProjectsSection() {
 
     useEffect(() => {
         const fetchProjects = async () => {
-            const res = await axios.get('http://localhost:5000/projects');
+            const res = await axios.get('https://imran-portfolio-server.vercel.app/projects');
             setProjects(res.data)
         };
         fetchProjects()
@@ -90,7 +90,7 @@ export default function ProjectsSection() {
 
                             {
                                 project.techStack.length > 3 && (
-                                    <p className="border border-gray-300 text-gray-500 py-1 px-4 rounded-full text-sm font-medium">
+                                    <p className="border border-gray-300 text-dressTxt py-1 px-4 rounded-full text-sm font-medium">
                                         +{project.techStack.length - 3} more
                                     </p>
                                 )
