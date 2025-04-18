@@ -1,10 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 5000;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const allowedOrigins = [
     'http://localhost:5173',
@@ -17,67 +19,108 @@ app.use(cors({
 
 app.use(express.json())
 
-// Set up nodemailer transporter
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS,
-    },
-});
+// // Set up nodemailer transporter
+// const transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: process.env.GMAIL_USER,
+//         pass: process.env.GMAIL_PASS,
+//     },
+// });
 
 
-transporter.verify((error, success) => {
-    if (error) {
-        console.error("Transporter error:", error);
-    } else {
-        console.log("Transporter is ready:", success);
-    }
-});
+// transporter.verify((error, success) => {
+//     if (error) {
+//         console.error("Transporter error:", error);
+//     } else {
+//         console.log("Transporter is ready:", success);
+//     }
+// });
 
 
-// Send email function
-const sendEmail = async (formData) => {
-    const mailOptions = {
-        from: process.env.GMAIL_USER,
-        to: process.env.GMAIL_USER,
-        subject: `Message from ${formData.name}`,
-        text: `Message: ${formData.message}\nEmail: ${formData.email}`,
+// // Send email function
+// const sendEmail = async (formData) => {
+//     const mailOptions = {
+//         from: process.env.GMAIL_USER,
+//         to: process.env.GMAIL_USER,
+//         subject: `Message from ${formData.name}`,
+//         text: `Message: ${formData.message}\nEmail: ${formData.email}`,
+//     };
+
+//     const replyMailOptions = {
+//         from: process.env.GMAIL_USER,
+//         to: formData.email,
+//         subject: `Thank you for contacting us, ${formData.name}`,
+//         text: `Hi ${formData.name},\n\nThank you for your message! We'll get back to you shortly.\n\nMessage: ${formData.message}`,
+//     };
+
+//     try {
+//         const info1 = await transporter.sendMail(mailOptions);
+//         console.log('Email sent to you:', info1.response);
+
+//         const info2 = await transporter.sendMail(replyMailOptions);
+//         console.log('Reply email sent to sender:', info2.response);
+//     } catch (error) {
+//         console.error("Email send error:", error);
+//     }
+// };
+
+const sendEmail = async ({ name, email, message }) => {
+    const toYouMail = {
+        from: 'Imran Portfolio <onboarding@resend.dev>',
+        to: process.env.TO_EMAIL,
+        subject: `Message from ${name}`,
+        html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+        `,
     };
 
-    const replyMailOptions = {
-        from: process.env.GMAIL_USER,
-        to: formData.email,
-        subject: `Thank you for contacting us, ${formData.name}`,
-        text: `Hi ${formData.name},\n\nThank you for your message! We'll get back to you shortly.\n\nMessage: ${formData.message}`,
+    const replyToSender = {
+        from: 'Imran Portfolio <onboarding@resend.dev>',
+        to: email,
+        subject: `Thanks for contacting, ${name}!`,
+        html: `
+        <p>Hi ${name},</p>
+        <p>Thanks for reaching out! We received your message and will get back to you soon.</p>
+        <hr />
+        <p><strong>Your Message:</strong></p>
+        <p>${message}</p>
+        `,
     };
 
     try {
-        const info1 = await transporter.sendMail(mailOptions);
-        console.log('Email sent to you:', info1.response);
+        const sentToYou = await resend.emails.send(toYouMail);
+        console.log("Sent to you:", sentToYou.id);
 
-        const info2 = await transporter.sendMail(replyMailOptions);
-        console.log('Reply email sent to sender:', info2.response);
-    } catch (error) {
-        console.error("Email send error:", error);
+        const sentToSender = await resend.emails.send(replyToSender);
+        console.log("Sent to sender:", sentToSender.id);
+
+        return { success: true };
+    } catch (err) {
+        console.error("Email sending error:", err);
+        return { success: false, error: err };
     }
 };
 
 
 
 // Contact route to handle form submissions
-app.post('/contact', (req, res) => {
+app.post('/contact', async (req, res) => {
     const { name, email, message } = req.body;
 
-    // Send email
-    sendEmail({ name, email, message });
+    console.log("Contact request received:", { name, email, message });
 
-    res.status(200).json({ message: 'Message sent successfully!' });
+    const response = await sendEmail({ name, email, message });
+
+    if (response.success) {
+        res.status(200).json({ message: 'Message sent successfully!' });
+    } else {
+        res.status(500).json({ message: 'Failed to send email', error: response.error });
+    }
 });
-
-
-console.log("GMAIL_USER:", process.env.GMAIL_USER);
-console.log("GMAIL_PASS:", process.env.GMAIL_PASS);
 
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.mf5r9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
