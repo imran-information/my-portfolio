@@ -1,4 +1,3 @@
-import React from 'react';
 import { Typography, Button, Box } from '@mui/material';
 import meImg from '../asstes/imran-dp-white.png';
 import { HashLink } from 'react-router-hash-link';
@@ -6,8 +5,12 @@ import { HashLink } from 'react-router-hash-link';
 const AboutSection = () => {
     return (
         <Box className="container mx-auto py-24 gap-36 lg:flex items-center text-white px-6 lg:px-0">
-            {/* Image Section */}
-            <Box data-aos="zoom-in-right" data-aos-duration="1500" style={{ flex: 2, textAlign: 'center' }}>
+            {/* Image Section */} 
+            <Box
+                data-aos="zoom-in-right"
+                data-aos-duration="1500"
+                style={{ flex: 2, textAlign: 'center' }}
+            >
                 <img
                     src={meImg}
                     alt="Imran Hossain - Web Developer"
@@ -16,11 +19,21 @@ const AboutSection = () => {
                         borderRadius: '20px',
                         objectFit: 'cover',
                         border: '5px solid #13bbff',
-                        boxShadow: '0 0 20px #13bbff',
-                        transition: 'transform 0.6s ease-in-out',
+                        boxShadow: '0 0 20px rgba(19, 187, 255, 0.5)',
+                        transition: 'all 0.6s ease-in-out',
+                        transform: 'scale(1)',
+                        cursor: 'pointer',
                     }}
-                    onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                    onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                    onMouseEnter={(e) => {
+                        e.target.style.boxShadow = '0 0 30px #13bbff';
+                        e.target.style.borderColor = '#13bbff';
+                        e.target.style.transform = 'scale(1.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.target.style.boxShadow = '0 0 20px rgba(19, 187, 255, 0.5)';
+                        e.target.style.borderColor = '#13bbff';
+                        e.target.style.transform = 'scale(1)';
+                    }}
                 />
             </Box>
 

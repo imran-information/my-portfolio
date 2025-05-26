@@ -1,37 +1,48 @@
-import React from 'react';
-import { Button, Typography, IconButton } from '@mui/material';
-import { LinkedIn, Facebook, GitHub, CloudDownload, Twitter } from '@mui/icons-material';
-import meImg2 from '../asstes/imran-dp-white.png';
-import CV from '../asstes/Resume.pdf';
+import { Button, IconButton } from '@mui/material';
+import { LinkedIn, Facebook, GitHub, CloudDownload, Twitter } from '@mui/icons-material'; 
 import TypewriterEffect from './TypewriterEffect';
+import SplitText from './SplitText/SplitText';
+import BlurText from './BlurText/BlurText';
+import { Link } from 'react-router-dom';
 
-const MeSection = () => {
-    const handleDownload = () => {
-        const link = document.createElement('a');
-        link.href = CV;
-        link.download = 'Imran-CV.jpg';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
+
+const MeSection = () => { 
+
+    // Tech stack data
+    const techStack = [
+        { name: 'react', label: 'React' },
+        { name: 'nodejs', label: 'Node.js' },
+        { name: 'mongodb', label: 'MongoDB' },
+        { name: 'express', label: 'Express' },
+        { name: 'javascript', label: 'JavaScript' },
+        { name: 'materialui', label: 'Material UI' }
+    ];
 
     return (
         <section id='home' className='gap-36  container mx-auto min-h-screen lg:flex items-center  px-6 lg:px-0' >
 
             {/* Developer Information */}
             <div data-aos="zoom-in" data-aos-duration="1500" className='flex-1'>
-                <Typography variant=" h4" style={{ fontWeight: 'bold' }}>
-                    Hi, There!
-                </Typography>
-                <TypewriterEffect />
-                <Typography className='text-dressTxt text-justify md:text-start' variant="body1" style={{ marginTop: '10px', fontWeight: 'bold', lineHeight: '26px' }}>
-                    I’m a MERN Stack developer passionate about creating interactive user experiences
-                    and building efficient, high-performance websites and applications. I specialize
-                    in JavaScript, React, Node.js, and various modern development technologies. I love learning
-                    and adapting to new challenges in the tech world.
-                </Typography>
-
-
+                <SplitText
+                    text="Hi, There!"
+                    className="text-2xl font-semibold text-center"
+                    delay={150}
+                    animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+                    animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                    easing="easeOutCubic"
+                    threshold={0.2}
+                    rootMargin="-50px"
+                />
+                <TypewriterEffect /> 
+                <BlurText
+                    text="I'm a MERN Stack developer passionate about creating interactive user experiences
+  and building efficient, high-performance websites and applications. I specialize
+  in JavaScript, React, Node.js, and various modern development technologies. I love learning
+  and adapting to new challenges in the tech world."
+                    delay={100}
+                    animateBy="words"
+                    className="text-lg font-extralight"
+                />
                 {/* Social Media Icons */}
                 <div style={{ marginTop: '15px', }} >
                     <IconButton
@@ -154,30 +165,91 @@ const MeSection = () => {
                             boxShadow: '0 0 20px #13bbff',
 
                         }
-                    }}
-                    onClick={handleDownload}
+                    }} 
                     startIcon={<CloudDownload />}
                 >
-                    Download CV
+                    <Link target='_blank' to='https://drive.google.com/file/d/1pOioVGFyLgIpHP6I_9w2uxYt3kR-Titj/view?usp=sharing'>Download CV</Link>
                 </Button>
 
             </div>
-            {/* Developer Image */}
-            <div data-aos="zoom-in" data-aos-duration="1500" className='flex-1 py-20 lg:py-0'>
-                <img
-                    src={meImg2}
-                    alt="Developer"
-                    style={{
-                        borderRadius: '50%',
-                        objectFit: 'cover',
-                        border: '5px solid #13bbff',
-                        boxShadow: '0 0 20px #13bbff',
-                        transition: 'transform 0.6s ease-in-out',
-                    }}
-                    onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                    onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
-                />
+            {/* Tech Orb */}
+            <div data-aos="zoom-in" data-aos-duration="1500" className='flex-1 py-20 lg:py-0 flex justify-center items-center'>
+                <div className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]">
+                    {/* Glowing Base */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#13bbff10] to-[#13bbff03] backdrop-blur-sm border-2 border-[#13bbff] shadow-[0_0_40px_#13bbff30]"></div>
+
+                    {/* Animated Particles */}
+                    <div className="absolute inset-0 overflow-hidden rounded-full">
+                        {[...Array(24)].map((_, i) => (
+                            <div
+                                key={i}
+                                className="absolute rounded-full bg-[#13bbff]"
+                                style={{
+                                    width: `${Math.random() * 12 + 6}px`,
+                                    height: `${Math.random() * 12 + 6}px`,
+                                    top: `${Math.random() * 100}%`,
+                                    left: `${Math.random() * 100}%`,
+                                    opacity: Math.random() * 0.6 + 0.2,
+                                    animation: `float ${Math.random() * 10 + 5}s infinite ease-in-out`,
+                                    animationDelay: `${Math.random() * 5}s`
+                                }}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Rotating Tech Icons */}
+                    <div className="absolute inset-0 animate-spin-slow">
+                        {techStack.map((tech, i) => (
+                            <div
+                                key={tech.name}
+                                className="absolute left-1/2 top-1/2 w-16 h-16 flex flex-col items-center justify-center group"
+                                style={{
+                                    transform: `
+            translate(-50%, -50%) 
+            rotate(${i * (360 / techStack.length)}deg) 
+            translateY(-140px) 
+            rotate(-${i * (360 / techStack.length)}deg)
+          `
+                                }}
+                            >
+                                <img
+                                    src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.name}/${tech.name}-original.svg`}
+                                    alt={tech.label}
+                                    className="w-10 h-10 transition-all duration-500 hover:scale-150 hover:brightness-125 hover:drop-shadow-[0_0_8px_#13bbff]"
+                                />
+                                <span className="text-xs text-[#13bbff] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    {tech.label}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Center Content */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="relative z-10 text-center">
+                            <div className="text-5xl font-bold text-[#13bbff] mb-3">IMRAN</div>
+                            <div className="text-sm text-white/80 tracking-wider">MERN STACK DEVELOPER</div>
+                        </div>
+                    </div>
+
+                    {/* Pulsing Connection Lines */}
+                    <div className="absolute inset-0">
+                        {[...Array(12)].map((_, i) => (
+                            <div
+                                key={i}
+                                className="absolute top-1/2 left-1/2 w-0.5 h-32 bg-gradient-to-b from-[#13bbff] to-transparent origin-top"
+                                style={{
+                                    transform: `translate(-50%, -50%) rotate(${i * 30}deg)`,
+                                    opacity: 0.4,
+                                    animation: `pulse ${Math.random() * 3 + 2}s infinite ease-in-out`,
+                                    animationDelay: `${Math.random() * 2}s`
+                                }}
+                            />
+                        ))}
+                    </div>
+                </div>
             </div>
+
         </section >
     );
 };
