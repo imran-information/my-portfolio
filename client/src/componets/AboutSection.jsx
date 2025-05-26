@@ -1,11 +1,12 @@
 import { Typography, Button, Box } from '@mui/material';
 import meImg from '../asstes/imran-dp-white.png';
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from 'react-router-hash-link'; 
+import SectionHeader from './Shared/SectionHeader/SectionHeader';
 
 const AboutSection = () => {
     return (
         <Box className="container mx-auto py-24 gap-36 lg:flex items-center text-white px-6 lg:px-0">
-            {/* Image Section */} 
+            {/* Image Section */}
             <Box
                 data-aos="zoom-in-right"
                 data-aos-duration="1500"
@@ -38,15 +39,9 @@ const AboutSection = () => {
             </Box>
 
             {/* Information Section */}
-            <Box data-aos="zoom-in-left" data-aos-duration="1500" sx={{ flex: 3 }}>
-                <Typography
-                    variant="h4"
-                    sx={{ fontWeight: 'bold', textAlign: { xs: 'center', md: 'start' } }}
-                >
-                    About <span className="text-primary-color">Me</span>
-                </Typography>
-
-                <Box mt={3} sx={{ color: '#b0bec5' }}>
+            <Box  sx={{ flex: 3 }}>
+                <SectionHeader text={"About "} secondLetter={"Me"} /> 
+                <Box data-aos="zoom-in-left" data-aos-duration="1500" mt={3} sx={{ color: '#b0bec5' }}>
                     {/* Intro */}
                     <Typography variant="body1" sx={{ mt: 2 }}>
                         I'm <strong>Imran Hossain</strong>, a passionate <strong>MERN Stack Developer</strong> with a focus on building high-performance, clean, and responsive digital experiences.

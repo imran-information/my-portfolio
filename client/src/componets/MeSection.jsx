@@ -1,12 +1,12 @@
 import { Button, IconButton } from '@mui/material';
-import { LinkedIn, Facebook, GitHub, CloudDownload, Twitter } from '@mui/icons-material'; 
+import { LinkedIn, Facebook, GitHub, CloudDownload, Twitter } from '@mui/icons-material';
 import TypewriterEffect from './TypewriterEffect';
 import SplitText from './SplitText/SplitText';
 import BlurText from './BlurText/BlurText';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-
-const MeSection = () => { 
+const MeSection = () => {
 
     // Tech stack data
     const techStack = [
@@ -19,8 +19,7 @@ const MeSection = () => {
     ];
 
     return (
-        <section id='home' className='gap-36  container mx-auto min-h-screen lg:flex items-center  px-6 lg:px-0' >
-
+        <section id='home' className='gap-36  container mx-auto min-h-screen lg:flex items-center  px-6 lg:px-0' > 
             {/* Developer Information */}
             <div data-aos="zoom-in" data-aos-duration="1500" className='flex-1'>
                 <SplitText
@@ -33,13 +32,13 @@ const MeSection = () => {
                     threshold={0.2}
                     rootMargin="-50px"
                 />
-                <TypewriterEffect /> 
+                <TypewriterEffect />
                 <BlurText
                     text="I'm a MERN Stack developer passionate about creating interactive user experiences
   and building efficient, high-performance websites and applications. I specialize
   in JavaScript, React, Node.js, and various modern development technologies. I love learning
   and adapting to new challenges in the tech world."
-                    delay={100}
+                    delay={30}
                     animateBy="words"
                     className="text-lg font-extralight"
                 />
@@ -165,18 +164,19 @@ const MeSection = () => {
                             boxShadow: '0 0 20px #13bbff',
 
                         }
-                    }} 
+                    }}
                     startIcon={<CloudDownload />}
                 >
                     <Link target='_blank' to='https://drive.google.com/file/d/1pOioVGFyLgIpHP6I_9w2uxYt3kR-Titj/view?usp=sharing'>Download CV</Link>
                 </Button>
 
             </div>
+
             {/* Tech Orb */}
             <div data-aos="zoom-in" data-aos-duration="1500" className='flex-1 py-20 lg:py-0 flex justify-center items-center'>
-                <div className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]">
+                <div className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] cursor-pointer group">
                     {/* Glowing Base */}
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#13bbff10] to-[#13bbff03] backdrop-blur-sm border-2 border-[#13bbff] shadow-[0_0_40px_#13bbff30]"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#13bbff10] to-[#13bbff03] backdrop-blur-sm border-2 border-[#13bbff] shadow-[0_0_40px_#13bbff30] transition-all duration-500 group-hover:shadow-[0_0_60px_#13bbff50]"></div>
 
                     {/* Animated Particles */}
                     <div className="absolute inset-0 overflow-hidden rounded-full">
@@ -197,30 +197,35 @@ const MeSection = () => {
                         ))}
                     </div>
 
-                    {/* Rotating Tech Icons */}
+                    {/* Rotating Tech Icons with Enhanced Hover Spread Effect */}
                     <div className="absolute inset-0 animate-spin-slow">
                         {techStack.map((tech, i) => (
-                            <div
+                            <motion.div
                                 key={tech.name}
-                                className="absolute left-1/2 top-1/2 w-16 h-16 flex flex-col items-center justify-center group"
+                                className="absolute left-1/2 top-1/2 w-16 h-16 flex flex-col items-center justify-center"
                                 style={{
                                     transform: `
-            translate(-50%, -50%) 
-            rotate(${i * (360 / techStack.length)}deg) 
-            translateY(-140px) 
-            rotate(-${i * (360 / techStack.length)}deg)
-          `
+              translate(-50%, -50%) 
+              rotate(${i * (360 / techStack.length)}deg) 
+              translateY(-140px) 
+              rotate(-${i * (360 / techStack.length)}deg)
+            `
+                                }}
+                                whileHover={{
+                                    y: -30,
+                                    scale: 1.3,
+                                    transition: { duration: 0.3 }
                                 }}
                             >
                                 <img
                                     src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.name}/${tech.name}-original.svg`}
                                     alt={tech.label}
-                                    className="w-10 h-10 transition-all duration-500 hover:scale-150 hover:brightness-125 hover:drop-shadow-[0_0_8px_#13bbff]"
+                                    className="w-10 h-10 transition-all duration-300 group-hover:scale-125 group-hover:brightness-125 group-hover:drop-shadow-[0_0_8px_#13bbff]"
                                 />
                                 <span className="text-xs text-[#13bbff] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     {tech.label}
                                 </span>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
 
@@ -237,7 +242,7 @@ const MeSection = () => {
                         {[...Array(12)].map((_, i) => (
                             <div
                                 key={i}
-                                className="absolute top-1/2 left-1/2 w-0.5 h-32 bg-gradient-to-b from-[#13bbff] to-transparent origin-top"
+                                className="absolute top-1/2 left-1/2 w-0.5 h-32 bg-gradient-to-b from-[#13bbff] to-transparent origin-top transition-all duration-500 group-hover:h-40 group-hover:opacity-60"
                                 style={{
                                     transform: `translate(-50%, -50%) rotate(${i * 30}deg)`,
                                     opacity: 0.4,
