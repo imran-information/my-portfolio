@@ -1,9 +1,8 @@
-import { Button } from '@mui/material';
-import React from 'react';
-import CV from '../asstes/Resume.pdf';
+import { Button } from '@mui/material'; 
 import { CloudDownload } from '@mui/icons-material';
 import { HashLink } from 'react-router-hash-link';
 import { useLocation } from 'react-router-dom';
+import DownloadCvButton from './Shared/DownloadCvButton/DownloadCvButton';
 
 const Navbar = () => {
     const location = useLocation();
@@ -56,14 +55,7 @@ const Navbar = () => {
         </li>
     </>
 
-    const handleDownload = () => {
-        const link = document.createElement('a');
-        link.href = CV;
-        link.download = 'Imran-Resume.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
+    
 
     return (
         <div className='fixed z-50 w-full bg-minBg text-white'>
@@ -98,29 +90,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div data-aos="fade-left" data-aos-duration="1500" className="navbar-end">
-                    <Button
-                        variant="outlined"
-                        sx={{
-                            marginRight: { xs: '24px', md: '0' },
-                            backgroundColor: '#1b1f24',
-                            color: '#13bbff',
-                            border: '1px solid #13bbff',
-                            fontSize: '15px',
-                            fontWeight: '600',
-                            transition: 'all 0.50s ease',
-                            '&:hover': {
-                                backgroundColor: '#13bbff',
-                                borderColor: '#13bbff',
-                                color: '#1b1f24',
-                                boxShadow: '0 0 20px #13bbff',
-                                transform: 'scale(1.1)',
-                            }
-                        }}
-                        onClick={handleDownload}
-                        startIcon={<CloudDownload />}
-                    >
-                        Download CV
-                    </Button>
+                     <DownloadCvButton/>
                 </div>
 
             </div>

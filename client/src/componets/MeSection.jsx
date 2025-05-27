@@ -5,6 +5,7 @@ import SplitText from './SplitText/SplitText';
 import BlurText from './BlurText/BlurText';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import DownloadCvButton from './Shared/DownloadCvButton/DownloadCvButton';
 
 const MeSection = () => {
 
@@ -19,7 +20,7 @@ const MeSection = () => {
     ];
 
     return (
-        <section id='home' className='gap-36  container mx-auto min-h-screen lg:flex items-center  px-6 lg:px-0' > 
+        <section id='home' className='gap-36  container mx-auto min-h-screen lg:flex items-center  px-6 lg:px-0' >
             {/* Developer Information */}
             <div data-aos="zoom-in" data-aos-duration="1500" className='flex-1'>
                 <SplitText
@@ -119,56 +120,35 @@ const MeSection = () => {
                     </IconButton>
                 </div>
 
-
-                {/* Action Buttons */}
-                <Button
-                    variant="contained"
-                    sx={{
-                        backgroundColor: '#13bbff',
-                        color: '#1b1f24',
-                        border: '1px solid #13bbff',
-                        fontSize: '15px',
-                        fontWeight: '600',
-                        marginTop: '20px',
-                        transition: 'all 0.50s ease',
-                        '&:hover': {
-                            backgroundColor: '#1b1f24',
-                            borderColor: '#13bbff',
-                            color: '#13bbff',
-                            boxShadow: '0 0 20px #13bbff',
-
-                        }
-                    }}
-                    href="https://github.com/imran-information"
-                    target="_blank"
-                    startIcon={<GitHub />}
-                >
-                    GitHub
-                </Button>
-
-                <Button
-                    variant="outlined"
-                    sx={{
-                        backgroundColor: '#1b1f24',
-                        color: '#13bbff',
-                        border: '1px solid #13bbff',
-                        fontSize: '15px',
-                        fontWeight: '600',
-                        marginTop: '20px',
-                        marginLeft: '10px',
-                        transition: 'all 0.50s ease',
-                        '&:hover': {
+                <div className="flex items-center gap-4 mt-5">
+                    {/* Action Buttons */}
+                    <Button
+                        variant="contained"
+                        sx={{
                             backgroundColor: '#13bbff',
-                            borderColor: '#13bbff',
                             color: '#1b1f24',
-                            boxShadow: '0 0 20px #13bbff',
+                            border: '1px solid #13bbff',
+                            fontSize: '15px',
+                            fontWeight: '600', 
+                            transition: 'all 0.50s ease',
+                            '&:hover': {
+                                backgroundColor: '#1b1f24',
+                                borderColor: '#13bbff',
+                                color: '#13bbff',
+                                boxShadow: '0 0 20px #13bbff',
 
-                        }
-                    }}
-                    startIcon={<CloudDownload />}
-                >
-                    <Link target='_blank' to='https://drive.google.com/file/d/1pOioVGFyLgIpHP6I_9w2uxYt3kR-Titj/view?usp=sharing'>Download CV</Link>
-                </Button>
+                            }
+                        }}
+                        href="https://github.com/imran-information"
+                        target="_blank"
+                        startIcon={<GitHub />}
+                    >
+                        GitHub
+                    </Button>
+
+                    {/* Download Cv Button */}
+                    <DownloadCvButton />
+                </div>
 
             </div>
 
