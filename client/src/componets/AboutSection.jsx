@@ -86,20 +86,18 @@ const AboutSection = () => {
                 </div>
             </Box>
             {/* Information Section */}
-            {/* Information Section */}
             <Box sx={{ flex: 3 }}>
                 <SectionHeader text={"About "} secondLetter={"Me"} />
-                <Box data-aos="zoom-in-left" data-aos-duration="1500" mt={3}>
+                <Box data-aos="zoom-in-left" data-aos-duration="1500" mt={2}>
                     <Box sx={{
-                        p: 4,
+                        p: 3,
                         bgcolor: '#1b1f24',
                         borderRadius: 2,
                         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.36)',
                         border: '1px solid rgba(255, 255, 255, 0.08)'
                     }}>
-
                         {/* Introduction */}
-                        <Box sx={{ mb: 3 }}>
+                        <Box sx={{ mb: 2 }}>
                             <Typography variant="body1" paragraph sx={{
                                 fontSize: '1.1rem',
                                 lineHeight: 1.8,
@@ -111,15 +109,15 @@ const AboutSection = () => {
 
                         {/* Divider */}
                         <Divider sx={{
-                            my: 3,
+                            my: 2,
                             bgcolor: 'rgba(255, 255, 255, 0.12)'
                         }} />
 
                         {/* Skills Section */}
-                        <Box sx={{ mb: 4 }}>
+                        <Box sx={{ mb: 3 }}>
                             <Typography variant="h5" component="h2" sx={{
                                 fontWeight: 700,
-                                mb: 3,
+                                mb: 2,
                                 color: '#ffffff',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -129,11 +127,11 @@ const AboutSection = () => {
                                 Technical Skills
                             </Typography>
 
-                            <Grid container spacing={3}>
+                            <Grid container spacing={2}>
                                 {/* Front-End */}
                                 <Grid item xs={12} md={6}>
                                     <Paper elevation={0} sx={{
-                                        p: 3,
+                                        p: 2,
                                         height: '100%',
                                         border: '1px solid rgba(19, 187, 255, 0.2)',
                                         borderRadius: 2,
@@ -146,7 +144,7 @@ const AboutSection = () => {
                                     }}>
                                         <Typography variant="subtitle1" sx={{
                                             fontWeight: 600,
-                                            mb: 2,
+                                            mb: 1.5,
                                             color: '#13bbff',
                                             display: 'flex',
                                             alignItems: 'center',
@@ -179,7 +177,7 @@ const AboutSection = () => {
                                 {/* Back-End */}
                                 <Grid item xs={12} md={6}>
                                     <Paper elevation={0} sx={{
-                                        p: 3,
+                                        p: 2,
                                         height: '100%',
                                         border: '1px solid rgba(101, 227, 179, 0.2)',
                                         borderRadius: 2,
@@ -192,7 +190,7 @@ const AboutSection = () => {
                                     }}>
                                         <Typography variant="subtitle1" sx={{
                                             fontWeight: 600,
-                                            mb: 2,
+                                            mb: 1.5,
                                             color: '#65e3b3',
                                             display: 'flex',
                                             alignItems: 'center',
@@ -225,10 +223,10 @@ const AboutSection = () => {
                         </Box>
 
                         {/* Experience */}
-                        <Box sx={{ mb: 4 }}>
+                        <Box sx={{ mb: 3 }}>
                             <Typography variant="h5" component="h2" sx={{
                                 fontWeight: 700,
-                                mb: 3,
+                                mb: 2,
                                 color: '#ffffff',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -241,7 +239,7 @@ const AboutSection = () => {
                             <Box sx={{
                                 display: 'flex',
                                 alignItems: 'flex-start',
-                                mb: 2
+                                mb: 1.5
                             }}>
                                 <Typography variant="body1" paragraph sx={{
                                     mb: 0,
@@ -252,7 +250,7 @@ const AboutSection = () => {
                                 </Typography>
                             </Box>
 
-                            <List dense sx={{ pl: 2 }}>
+                            <List dense sx={{ pl: 1 }}>
                                 {[
                                     'Responsive tourism websites with booking functionality',
                                     'Interactive SaaS dashboards with real-time analytics',
@@ -260,7 +258,7 @@ const AboutSection = () => {
                                     'E-commerce interfaces with payment gateways'
                                 ].map((item, index) => (
                                     <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
-                                        <ListItemIcon sx={{ minWidth: 36 }}>
+                                        <ListItemIcon sx={{ minWidth: 32 }}>
                                             <FiberManualRecord sx={{
                                                 fontSize: 10,
                                                 color: '#13bbff'
@@ -279,10 +277,10 @@ const AboutSection = () => {
                         </Box>
 
                         {/* Interests */}
-                        <Box sx={{ mb: 4 }}>
+                        <Box sx={{ mb: 3 }}>
                             <Typography variant="h5" component="h2" sx={{
                                 fontWeight: 700,
-                                mb: 3,
+                                mb: 2,
                                 color: '#ffffff',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -296,7 +294,7 @@ const AboutSection = () => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 bgcolor: 'rgba(255, 255, 255, 0.03)',
-                                p: 3,
+                                p: 2,
                                 borderRadius: 2,
                                 border: '1px solid rgba(255, 255, 255, 0.08)'
                             }}>
@@ -313,7 +311,7 @@ const AboutSection = () => {
                         <Box>
                             <Typography variant="h5" component="h2" sx={{
                                 fontWeight: 700,
-                                mb: 3,
+                                mb: 2,
                                 color: '#ffffff',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -324,7 +322,7 @@ const AboutSection = () => {
                             </Typography>
 
                             <Paper elevation={0} sx={{
-                                p: 3,
+                                p: 2,
                                 border: '1px solid rgba(19, 187, 255, 0.2)',
                                 borderRadius: 2,
                                 bgcolor: 'rgba(19, 187, 255, 0.05)'
@@ -342,16 +340,16 @@ const AboutSection = () => {
                                             <Box sx={{
                                                 display: 'flex',
                                                 alignItems: 'center',
-                                                p: 1.5,
+                                                p: 1,
                                                 borderRadius: 1,
                                                 '&:hover': {
                                                     bgcolor: 'rgba(19, 187, 255, 0.1)'
                                                 }
                                             }}>
                                                 <Box sx={{
-                                                    mr: 2,
-                                                    width: 40,
-                                                    height: 40,
+                                                    mr: 1.5,
+                                                    width: 36,
+                                                    height: 36,
                                                     borderRadius: '50%',
                                                     bgcolor: 'rgba(19, 187, 255, 0.1)',
                                                     display: 'flex',
@@ -372,7 +370,7 @@ const AboutSection = () => {
                     </Box>
 
                     {/* View Projects Button */}
-                    <Box mt={3}>
+                    <Box mt={2}>
                         <Button
                             sx={{
                                 backgroundColor: '#13bbff',
@@ -380,7 +378,7 @@ const AboutSection = () => {
                                 border: '1px solid #13bbff',
                                 fontSize: '15px',
                                 fontWeight: '600',
-                                mt: 2,
+                                mt: 1.5,
                                 transition: 'all 0.5s ease',
                                 '&:hover': {
                                     backgroundColor: '#1b1f24',
